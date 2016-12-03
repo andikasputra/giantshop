@@ -6,8 +6,8 @@ require_once 'assets/php/header.php';
         require_once 'assets/php/proses-komentar.php';
 
 	$q = "SELECT kdbarang, nmbarang, nmjenis, nmmerk, nmsupplier, harga, stok, foto, deskripsi, jenis.kdjenis FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis JOIN merk ON merk.kdmerk=barang.kdmerk JOIN supplier ON barang.kdsupplier=supplier.kdsupplier WHERE kdbarang='$_GET[kd]'";
-	$sql = mysql_query($q);
-	$res = mysql_fetch_array($sql);
+	$sql = mysqli_query($conn, $q);
+	$res = mysqli_fetch_array($sql);
 
 ?>
 
@@ -130,9 +130,9 @@ require_once 'assets/php/header.php';
 
 								<?php
 								$ql = "SELECT kdbarang, nmbarang, harga, foto FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis WHERE barang.kdjenis='$res[9]' AND barang.kdbarang != '$res[0]' LIMIT 0,2";
-								$sqll = mysql_query($ql);
+								$sqll = mysqli_query($conn, $ql);
 
-								while($resl = mysql_fetch_array($sqll)){
+								while($resl = mysqli_fetch_array($sqll)){
 								?>
 
 								<div class="col-md-6 col-sm-6 popular-container">
@@ -166,9 +166,9 @@ require_once 'assets/php/header.php';
 
 								<?php
 								$ql = "SELECT kdbarang, nmbarang, harga, foto FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis WHERE barang.kdjenis='$res[9]' AND barang.kdbarang != '$res[0]' LIMIT 2,2";
-								$sqll = mysql_query($ql);
+								$sqll = mysqli_query($conn, $ql);
 
-								while($resl = mysql_fetch_array($sqll)){
+								while($resl = mysqli_fetch_array($sqll)){
 								?>
 
 								<div class="col-md-6 col-sm-6 popular-container">
@@ -202,9 +202,9 @@ require_once 'assets/php/header.php';
 
 								<?php
 								$ql = "SELECT kdbarang, nmbarang, harga, foto FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis WHERE barang.kdjenis='$res[9]' AND barang.kdbarang != '$res[0]' LIMIT 4,2";
-								$sqll = mysql_query($ql);
+								$sqll = mysqli_query($conn, $ql);
 
-								while($resl = mysql_fetch_array($sqll)){
+								while($resl = mysqli_fetch_array($sqll)){
 								?>
 
 								<div class="col-md-6 col-sm-6 popular-container">

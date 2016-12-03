@@ -1,7 +1,7 @@
 <?php
 if(isset($_GET['kd'])){
     $q = "UPDATE `trx` SET idstatus='2', tglkirim=now() WHERE kdtrx='$_GET[kd]'";
-    $sql = mysql_query($q);
+    $sql = mysqli_query($conn, $q);
     if($sql){ ?>
     	<script type="text/javascript">
     	alert("status telah dikirim");

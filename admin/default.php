@@ -10,8 +10,8 @@
 			<h3>Hallo admin, selamat datang di halaman admin</h3>
 
 			<?php
-			$sql = mysql_query("SELECT * FROM trx WHERE idstatus=1");
-			$c = mysql_num_rows($sql);
+			$sql = mysqli_query($conn, "SELECT * FROM trx WHERE idstatus=1");
+			$c = mysqli_num_rows($sql);
 			echo "<h5 class='label label-danger'>Ada ".$c." transaksi belum dikirim.</h5>";
 			?>
 			<br /><br />
@@ -35,9 +35,9 @@
 				</tr>
 			<?php
 			$q = "SELECT kdbarang, nmbarang, nmjenis, stok FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis JOIN supplier ON barang.kdsupplier=supplier.kdsupplier ORDER BY stok ASC LIMIT 0,5";
-			$sql = mysql_query($q);
+			$sql = mysqli_query($conn, $q);
 			$no = 1;
-			while($res = mysql_fetch_array($sql)){?>
+			while($res = mysqli_fetch_array($sql)){?>
 				<tr>
 					<td><?php echo $no; ?></td>
 					<td><?php echo $res[0]; ?></td>
@@ -65,9 +65,9 @@
 				</tr>
 			<?php
 			$q = "SELECT nama, nmbarang, tgl FROM user U JOIN komentar K ON U.email=K.email JOIN barang B ON B.kdbarang=K.kdbarang ORDER BY tgl DESC LIMIT 0,5";
-			$sql = mysql_query($q);
+			$sql = mysqli_query($conn, $q);
 			$no = 1;
-			while($res = mysql_fetch_array($sql)){?>
+			while($res = mysqli_fetch_array($sql)){?>
 				<tr>
 					<td><?php echo $no; ?></td>
 					<td><?php echo $res[0]; ?></td>

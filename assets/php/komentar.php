@@ -1,6 +1,6 @@
 <?php
 $q = "SELECT nama, tgl, isikomentar FROM user JOIN komentar ON user.email=komentar.email WHERE komentar.kdbarang='$_GET[kd]'";
-$sql = mysql_query($q);
+$sql = mysqli_query($conn, $q);
 ?>
 
                                 
@@ -9,7 +9,7 @@ $sql = mysql_query($q);
                                     <div class="col-md-12">
 
                                         <?php
-                                        while ($rk = mysql_fetch_array($sql)) {
+                                        while ($rk = mysqli_fetch_array($sql)) {
 
                                         ?>
                                     

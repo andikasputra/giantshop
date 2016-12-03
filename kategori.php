@@ -7,7 +7,7 @@
         		<div class="container">
 
         			<?php
-                    $r = mysql_fetch_array(mysql_query("SELECT nmjenis FROM jenis WHERE kdjenis='$_GET[k]'"));
+                    $r = mysqli_fetch_array(mysqli_query($conn, "SELECT nmjenis FROM jenis WHERE kdjenis='$_GET[k]'"));
                         echo '<h4>kategori : '.$r[0].'</h4>';
                     ?>
 
@@ -22,8 +22,8 @@
         			<?php
 					$q = "SELECT * FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis JOIN supplier ON barang.kdsupplier=supplier.kdsupplier WHERE jenis.kdjenis='$_GET[k]' ORDER BY kdbarang ASC";
 
-					$sql = mysql_query($q);
-					while($res = mysql_fetch_array($sql)){ ?>
+					$sql = mysqli_query($conn, $q);
+					while($res = mysqli_fetch_array($sql)){ ?>
 
         			<div class="col-md-4 col-sm-6 item-container">
 

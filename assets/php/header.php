@@ -97,8 +97,8 @@
                     <ul class="nav navbar-nav">
 			<?php
 			$qk = "SELECT * FROM `jenis` ORDER BY nmjenis ASC";
-			$sqlk = mysql_query($qk);
-			while($resk = mysql_fetch_array($sqlk)){ ?>
+			$sqlk = mysqli_query($conn, $qk);
+			while($resk = mysqli_fetch_array($sqlk)){ ?>
 
                         <li><a href="kategori.php?k=<?php echo $resk[0] ?>"><?php echo $resk[1] ?></a></li>
 

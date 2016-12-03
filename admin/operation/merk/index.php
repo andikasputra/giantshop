@@ -14,9 +14,9 @@
 	</tr>
 <?php
 $q = "SELECT * FROM `merk` ORDER BY 'kdmerk' ASC";
-$sql = mysql_query($q);
+$sql = mysqli_query($conn, $q);
 $no = 1;
-while($res = mysql_fetch_array($sql)){?>
+while($res = mysqli_fetch_array($sql)){?>
 	<tr>
 		<td><?php echo $no; ?></td>
 		<td><?php echo $res[0]; ?></td>

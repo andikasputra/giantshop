@@ -8,8 +8,8 @@
         	<?php
         	$q = "SELECT * FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis JOIN supplier ON barang.kdsupplier=supplier.kdsupplier ORDER BY stok DESC LIMIT 0,1";
 
-			$sql = mysql_query($q);
-			$res = mysql_fetch_array($sql);
+			$sql = mysqli_query($conn, $q);
+			$res = mysqli_fetch_array($sql);
 			?>
 
         		<div class="col-md-5">
@@ -43,8 +43,8 @@
 	        <?php
 			$q = "SELECT * FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis JOIN supplier ON barang.kdsupplier=supplier.kdsupplier ORDER BY stok DESC LIMIT 1,4";
 
-			$sql = mysql_query($q);
-			while($res = mysql_fetch_array($sql)){ ?>
+			$sql = mysqli_query($conn, $q);
+			while($res = mysqli_fetch_array($sql)){ ?>
 
         		<div class="col-md-3 col-sm-6 popular-container">
         			
@@ -96,8 +96,8 @@
         			<?php
 					$q = "SELECT * FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis JOIN supplier ON barang.kdsupplier=supplier.kdsupplier ORDER BY kdbarang DESC LIMIT 0,12";
 
-					$sql = mysql_query($q);
-					while($res = mysql_fetch_array($sql)){ ?>
+					$sql = mysqli_query($conn, $q);
+					while($res = mysqli_fetch_array($sql)){ ?>
 
         			<div class="col-md-4 col-sm-6 item-container">
 

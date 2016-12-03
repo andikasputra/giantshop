@@ -14,9 +14,9 @@
 	</tr>
 <?php
 $q = "SELECT kdtrx, nama, tgltrx, tglkirim, nmstatus, T.idstatus FROM user U JOIN trx T ON U.email=T.email JOIN statustransaksi S ON T.idstatus=S.idstatus ORDER BY kdtrx DESC";
-$sql = mysql_query($q);
+$sql = mysqli_query($conn, $q);
 $no = 1;
-while($res = mysql_fetch_array($sql)){?>
+while($res = mysqli_fetch_array($sql)){?>
 	<tr>
 		<td><?php echo $res[0]; ?></td>
 		<td><?php echo $res[1]; ?></td>

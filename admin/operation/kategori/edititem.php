@@ -3,13 +3,13 @@ if(isset($_POST['ubah'])){
     $nmjenis = $_POST['nmjenis'];
     $kdjenis = $_POST['kdjenis'];
     $q = "UPDATE jenis SET nmjenis='".$nmjenis."' WHERE kdjenis='".$kdjenis."'";
-    $sql = mysql_query($q);
+    $sql = mysqli_query($conn, $q);
     if($sql)
         header("location: ?p=kategori");
 }else if(isset($_GET['kd'])){
     $q = "SELECT * FROM `jenis` WHERE kdjenis='$_GET[kd]' ";
-    $sql = mysql_query($q);
-    $res = mysql_fetch_array($sql);?>
+    $sql = mysqli_query($conn, $q);
+    $res = mysqli_fetch_array($sql);?>
     
     <div class="title">
 

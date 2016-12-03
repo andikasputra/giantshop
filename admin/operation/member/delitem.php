@@ -1,5 +1,5 @@
 <?php
 $q = "DELETE FROM `user` WHERE kdjenis='$_GET[kd]'";
-$sql = mysql_query($q) or die(mysql_error());
+$sql = mysqli_query($conn, $q) or die(mysqli_error($conn));
 if($sql) header('location: ?p=member');
 ?>

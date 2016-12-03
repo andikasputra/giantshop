@@ -2,22 +2,22 @@
 
 function jenisBarang(){
     $q = "SELECT * FROM `jenis` ORDER BY 'kdjenis' ASC";
-    $sql = mysql_query($q);
-    while($res = mysql_fetch_array($sql)){
+    $sql = mysqli_query($conn, ($q);
+    while($res = mysqli_fetch_array($sql)){
         echo "<option value='".$res[0]."'>".$res[1]."</option>";
     }
 }
 function merkBarang(){
     $q = "SELECT * FROM `merk` ORDER BY 'kdmerk' ASC";
-    $sql = mysql_query($q);
-    while($res = mysql_fetch_array($sql)){
+    $sql = mysqli_query($conn, ($q);
+    while($res = mysqli_fetch_array($sql)){
         echo "<option value='".$res[0]."'>".$res[1]."</option>";
     }
 }
 function supplierBarang(){
     $q = "SELECT * FROM `supplier` ORDER BY 'kdsupplier' ASC";
-    $sql = mysql_query($q);
-    while($res = mysql_fetch_array($sql)){
+    $sql = mysqli_query($conn, ($q);
+    while($res = mysqli_fetch_array($sql)){
         echo "<option value='".$res[0]."'>".$res[1]."</option>";
     }
 }
@@ -37,7 +37,7 @@ if(isset($_POST['kirim'])){
     $q = "INSERT INTO `barang`";
     $q .= " VALUES ";
     $q .= "('$kdbarang','$nmbarang','$jenis','$merk','$supplier','$deskripsi','$nmfoto','$harga','$stok')";
-    $sql = mysql_query($q);
+    $sql = mysqli_query($conn, ($q);
     if($sql){
         copy($filefoto,'../assets/prodimgs/'.$nmfoto);
         header("location: ?p=barang");

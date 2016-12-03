@@ -6,8 +6,8 @@
 <?php
 if(isset($_GET['kd'])){
 	$q = "SELECT nama, T.email, notelp, T.alamat FROM user U JOIN trx T ON U.email=T.email WHERE kdtrx='$_GET[kd]'";
-	$sql = mysql_query($q);
-	$r = mysql_fetch_array($sql);?>
+	$sql = mysqli_query($conn, $q);
+	$r = mysqli_fetch_array($sql);?>
 
 	<table align='left' class="detailtrx">
 		<tr>
@@ -45,8 +45,8 @@ if(isset($_GET['kd'])){
 	<?php
 	$no=1;
 	$q = "SELECT nmbarang, B.harga, jml, subtotal FROM detailtrx T JOIN barang B ON B.kdbarang=T.kdbarang WHERE kdtrx='$_GET[kd]'";
-	$sql = mysql_query($q);
-	while($res = mysql_fetch_array($sql)){?>
+	$sql = mysqli_query($conn, $q);
+	while($res = mysqli_fetch_array($sql)){?>
 
 	<tr>
 		<td><?php echo $no++; ?></td>

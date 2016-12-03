@@ -1,5 +1,5 @@
 <?php
 $q = "DELETE FROM `komentar` WHERE idkomentar='$_GET[kd]'";
-$sql = mysql_query($q) or die(mysql_error());
+$sql = mysqli_query($conn, $q) or die(mysqli_error($conn));
 if($sql) header('location: ?p=komentar');
 ?>

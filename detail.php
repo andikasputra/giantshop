@@ -20,8 +20,8 @@ require_once 'assets/php/header.php';
 			<?php
 			if(isset($_GET['kd'])){
 				$q = "SELECT nama, T.email, notelp, T.alamat FROM user U JOIN trx T ON U.email=T.email WHERE kdtrx='$_GET[kd]'";
-				$sql = mysql_query($q);
-				$r = mysql_fetch_array($sql);?>
+				$sql = mysqli_query($conn, $q);
+				$r = mysqli_fetch_array($sql);?>
 				<div class="row">
 
 					<div class="col-md-5 col-sm-6">
@@ -66,8 +66,8 @@ require_once 'assets/php/header.php';
 				<?php
 				$no=1;
 				$q = "SELECT nmbarang, B.harga, jml, subtotal FROM detailtrx T JOIN barang B ON B.kdbarang=T.kdbarang WHERE kdtrx='$_GET[kd]'";
-				$sql = mysql_query($q);
-				while($res = mysql_fetch_array($sql)){?>
+				$sql = mysqli_query($conn, $q);
+				while($res = mysqli_fetch_array($sql)){?>
 
 				<tr>
 					<td><?php echo $no++; ?></td>
@@ -82,7 +82,7 @@ require_once 'assets/php/header.php';
 			?>
 				<tr>
 					<td colspan=4>Total</td>
-					<?php $tot = mysql_fetch_array(mysql_query("SELECT SUM(subtotal) FROM detailtrx WHERE kdtrx='$_GET[kd]'")) ?>
+					<?php $tot = mysqli_fetch_array(mysqli_query($conn, "SELECT SUM(subtotal) FROM detailtrx WHERE kdtrx='$_GET[kd]'")) ?>
 					<td align=right><strong><?php echo $tot[0]; ?></strong></td>
 				</tr>
 				</table>

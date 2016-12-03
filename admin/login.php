@@ -12,7 +12,7 @@ if(isset($_POST['username'])){
 	$passw = sha1($_POST['password']);
 
 	$q = "SELECT uname, password FROM admin WHERE uname='$uname' AND password='$passw'";
-	$sql = mysql_fetch_row(mysql_query($q));
+	$sql = mysqli_fetch_row(mysqli_query($conn, $q));
 	if($sql > 0){
 		$_SESSION['admin'] = true;
 		header('location: index.php');

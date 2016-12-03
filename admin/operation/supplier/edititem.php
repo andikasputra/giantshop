@@ -6,13 +6,13 @@ if(isset($_POST['ubah'])){
     $email = $_POST['email'];
     $notelp = $_POST['notelp'];
     $q = "UPDATE `supplier` SET nmsupplier='$nmsupplier', alamat='$alamat', email='$email', notelp='$notelp' WHERE kdsupplier='".$kdsupplier."'";
-    $sql = mysql_query($q) or die(mysql_error());
+    $sql = mysqli_query($conn, $q) or die(mysqli_error($conn));
     if($sql)
         header("location: ?p=supplier");
 }else if(isset($_GET['kd'])){
     $q = "SELECT * FROM `supplier` WHERE kdsupplier='$_GET[kd]' ";
-    $sql = mysql_query($q);
-    $res = mysql_fetch_array($sql);?>
+    $sql = mysqli_query($conn, $q);
+    $res = mysqli_fetch_array($sql);?>
 
     <div class="title">
 

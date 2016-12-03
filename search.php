@@ -23,8 +23,8 @@
                     $q.= " barang.nmbarang LIKE '%$_GET[q]%' OR jenis.nmjenis LIKE '%$_GET[q]%' OR";
                     $q.= " supplier.nmsupplier LIKE '%$_GET[q]%' OR merk.nmmerk LIKE '%$_GET[q]%' ORDER BY kdbarang ASC";
 
-					$sql = mysql_query($q);
-					while($res = mysql_fetch_array($sql)){ ?>
+					$sql = mysqli_query($conn, $q);
+					while($res = mysqli_fetch_array($sql)){ ?>
 
         			<div class="col-md-4 col-sm-6 item-container">
 

@@ -2,28 +2,28 @@
 
 function jenisBarang($a){
     $q = "SELECT * FROM `jenis` WHERE kdjenis != '$a' ORDER BY 'kdjenis' ASC";
-    $sql = mysql_query($q);
-    $s = mysql_fetch_array(mysql_query("SELECT * FROM `jenis` WHERE kdjenis = '$a'"));
+    $sql = mysqli_query($conn, $q);
+    $s = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `jenis` WHERE kdjenis = '$a'"));
         echo "<option value='".$s[0]."'>".$s[1]."</option>";
-    while($res = mysql_fetch_array($sql)){
+    while($res = mysqli_fetch_array($sql)){
         echo "<option value='".$res[0]."'>".$res[1]."</option>";
     }
 }
 function merkBarang($a){
     $q = "SELECT * FROM `merk` WHERE kdmerk != '$a' ORDER BY 'kdmerk' ASC";
-    $sql = mysql_query($q);
-    $s = mysql_fetch_array(mysql_query("SELECT * FROM `merk` WHERE kdmerk = '$a'"));
+    $sql = mysqli_query($conn, $q);
+    $s = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `merk` WHERE kdmerk = '$a'"));
         echo "<option value='".$s[0]."'>".$s[1]."</option>";
-    while($res = mysql_fetch_array($sql)){
+    while($res = mysqli_fetch_array($sql)){
         echo "<option value='".$res[0]."'>".$res[1]."</option>";
     }
 }
 function supplierBarang($a){
     $q = "SELECT * FROM `supplier` WHERE kdsupplier != '$a' ORDER BY 'kdsupplier' ASC";
-    $sql = mysql_query($q);
-    $s = mysql_fetch_array(mysql_query("SELECT * FROM `supplier` WHERE kdsupplier = '$a'"));
+    $sql = mysqli_query($conn, $q);
+    $s = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM `supplier` WHERE kdsupplier = '$a'"));
         echo "<option value='".$s[0]."'>".$s[1]."</option>";
-    while($res = mysql_fetch_array($sql)){
+    while($res = mysqli_fetch_array($sql)){
         echo "<option value='".$res[0]."'>".$res[1]."</option>";
     }
 }
@@ -45,7 +45,7 @@ if(isset($_POST['ubah'])){
     $q .= "nmbarang='$nmbarang', kdjenis='$jenis', kdmerk='$merk', kdsupplier='$supplier', deskripsi='$deskripsi', ";
     if(!empty($nmfoto)) $q .= "foto='$nmfoto',"; 
     $q .= "harga='$harga', stok='$stok' WHERE kdbarang='$kdbarang'";
-    $sql = mysql_query($q) or die(mysql_error());
+    $sql = mysqli_query($conn, $q) or die(mysqli_error($conn));
     if($sql){
         copy($filefoto,'../assets/prodimgs/'.$nmfoto);
         header("location: ?p=barang");
@@ -53,8 +53,8 @@ if(isset($_POST['ubah'])){
 
 }else if(isset($_GET['kd'])){
     $q = "SELECT * FROM `barang` WHERE kdbarang='$_GET[kd]' ";
-    $sql = mysql_query($q);
-    $res = mysql_fetch_array($sql);?>
+    $sql = mysqli_query($conn, $q);
+    $res = mysqli_fetch_array($sql);?>
 
     <div class="title">
 

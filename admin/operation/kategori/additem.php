@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['kirim'])){
     $q = "INSERT INTO `jenis` VALUES ('$_POST[kdjenis]','$_POST[nmjenis]')";
-    $sql = mysql_query($q);
+    $sql = mysqli_query($conn, $q);
     if($sql)
         header("location: ?p=kategori");
 }

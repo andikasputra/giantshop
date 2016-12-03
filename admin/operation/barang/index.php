@@ -17,9 +17,9 @@
 	</tr>
 <?php
 $q = "SELECT kdbarang, nmbarang, nmjenis, nmsupplier, harga, stok FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis JOIN supplier ON barang.kdsupplier=supplier.kdsupplier ORDER BY kdbarang ASC";
-$sql = mysql_query($q);
+$sql = mysqli_query($conn, $q);
 $no = 1;
-while($res = mysql_fetch_array($sql)){?>
+while($res = mysqli_fetch_array($sql)){?>
 	<tr>
 		<td><?php echo $no; ?></td>
 		<td><?php echo $res[0]; ?></td>

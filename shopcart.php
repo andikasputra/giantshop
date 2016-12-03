@@ -33,8 +33,8 @@
                         for ($i=0; $i < $_SESSION['index']; $i++) { 
                             $kdbarang = $_SESSION['kdbarang'][$i];
                             $q = "SELECT kdbarang, nmbarang, nmjenis, nmmerk, nmsupplier, harga, stok, foto, deskripsi, jenis.kdjenis FROM barang JOIN jenis ON barang.kdjenis=jenis.kdjenis JOIN merk ON merk.kdmerk=barang.kdmerk JOIN supplier ON barang.kdsupplier=supplier.kdsupplier WHERE kdbarang='$kdbarang'";
-                            $sql = mysql_query($q);
-                            $res = mysql_fetch_array($sql);?>
+                            $sql = mysqli_query($conn, $q);
+                            $res = mysqli_fetch_array($sql);?>
 
                             <tr>
                                 <td><?php echo $i+1; ?></td>

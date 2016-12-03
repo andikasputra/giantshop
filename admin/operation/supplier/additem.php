@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['kirim'])){
     $q = "INSERT INTO `supplier` VALUES ('$_POST[kdsupplier]','$_POST[nmsupplier]','$_POST[alamat]','$_POST[notelp]','$_POST[email]')";
-    $sql = mysql_query($q);
+    $sql = mysqli_query($conn, $q);
     if($sql)
         header("location: ?p=supplier");
 }

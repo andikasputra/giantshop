@@ -32,9 +32,9 @@ if(!isset($_SESSION['loginEmail'])) header('location: index.php');
 
                         <?php
                             $q = "SELECT trx.kdtrx, tgltrx, sum(subtotal), nmstatus FROM trx JOIN detailtrx ON trx.kdtrx=detailtrx.kdtrx JOIN statustransaksi ON statustransaksi.idstatus=trx.idstatus WHERE trx.email='$_SESSION[loginEmail]' GROUP BY trx.kdtrx, tgltrx, nmstatus";
-                            $sql = mysql_query($q);
+                            $sql = mysqli_query($conn, $q);
                             $i=1;
-                            while($res = mysql_fetch_array($sql)){ ?>
+                            while($res = mysqli_fetch_array($sql)){ ?>
 
                             <tr>
                                 <td><?php echo $i++; ?></td>

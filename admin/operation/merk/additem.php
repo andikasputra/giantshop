@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['kirim'])){
     $q = "INSERT INTO `merk` VALUES ('$_POST[kdmerk]','$_POST[nmmerk]','$_POST[notelp]')";
-    $sql = mysql_query($q);
+    $sql = mysqli_query($conn, $q);
     if($sql)
         header("location: ?p=merk");
 }

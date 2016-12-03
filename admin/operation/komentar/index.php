@@ -14,9 +14,9 @@
 	</tr>
 <?php
 $q = "SELECT nama, nmbarang, tgl, isikomentar, idkomentar FROM user U JOIN komentar K ON U.email=K.email JOIN barang B ON B.kdbarang=K.kdbarang ORDER BY tgl DESC";
-$sql = mysql_query($q);
+$sql = mysqli_query($conn, $q);
 $no = 1;
-while($res = mysql_fetch_array($sql)){?>
+while($res = mysqli_fetch_array($sql)){?>
 	<tr>
 		<td><?php echo $no; ?></td>
 		<td><?php echo $res[0]; ?></td>
